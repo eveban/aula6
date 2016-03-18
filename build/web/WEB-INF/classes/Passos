@@ -1,0 +1,8 @@
+1 - Criar projeto com Struts e Hibernate - Mapear o Banco
+2 - Hibernate - Engenharia Reversa
+3 - Hibernate - Criar POJO
+4 - Remover dos construtores os lits de mapeamentos das tabelas.
+5 - HibernateUtil
+6 - Criar os DAOS
+7 - Criar ActionsForm
+8 - Criar as Actions
