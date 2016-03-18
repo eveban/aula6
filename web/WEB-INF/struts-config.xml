@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        
+        <!-- Funcionario -->
+        <form-bean name="AlterarFuncionarioActionForm" type="br.com.aula.actionform.AlterarFuncionarioActionForm"/>
+        <form-bean name="ListarFuncionariosActionForm" type="br.com.aula.actionform.ListarFuncionariosActionForm"/>
+        <form-bean name="InsereFuncionarioActionForm" type="br.com.aula.actionform.InsereFuncionarioActionForm"/>
+        <form-bean name="RemoverFuncionarioActionForm" type="br.com.aula.actionform.RemoverFuncionarioActionForm"/>
+        
+        <form-bean name="LoginActionForm" type="br.com.aula.actionform.LoginActionForm"/>
+        
+        <!-- Dependente -->
+        <form-bean name="CadastraDependenteActionForm" type="br.com.aula.actionform.CadastraDependenteActionForm"/>
+        <form-bean name="ListarDependentesActionForm" type="br.com.aula.actionform.ListarDependentesActionForm"/>
+        <form-bean name="AlteraDependenteActionForm" type="br.com.aula.actionform.AlteraDependenteActionForm"/>
+        <form-bean name="RemoverDependenteActionForm" type="br.com.aula.actionform.RemoverDependenteActionForm"/>
+        
+        <!-- Departamento -->
+        <form-bean name="CadastraDepartamentoActionForm" type="br.com.aula.actionform.CadastraDepartamentoActionForm"/>
+        <form-bean name="ListarDepartamentosActionForm" type="br.com.aula.actionform.ListarDepartamentosActionForm"/>
+        <form-bean name="AlteraDepartamentoActionForm" type="br.com.aula.actionform.AlteraDepartamentoActionForm"/>
+        <form-bean name="RemoverDepartamentoActionForm" type="br.com.aula.actionform.RemoverDepartamentoActionForm"/>
+
+        <!-- Empresa -->
+        <form-bean name="CadastraEmpresaActionForm" type="br.com.aula.actionform.CadastraEmpresaActionForm"/>
+        <form-bean name="ListarEmpresasActionForm" type="br.com.aula.actionform.ListarEmpresasActionForm"/>
+        <form-bean name="AlteraEmpresaActionForm" type="br.com.aula.actionform.AlteraEmpresaActionForm"/>
+        <form-bean name="RemoverEmpresaActionForm" type="br.com.aula.actionform.RemoverEmpresaActionForm"/>
+        
+        <!-- Folha -->
+        <form-bean name="CadastraFolhaActionForm" type="br.com.aula.actionform.CadastraFolhaActionForm"/>
+        <form-bean name="ListarFolhasActionForm" type="br.com.aula.actionform.ListarFolhasActionForm"/>
+        <form-bean name="AlterarFolhaActionForm" type="br.com.aula.actionform.AlterarFolhaActionForm"/>
+        <form-bean name="RemoverFolhaActionForm" type="br.com.aula.actionform.RemoverFolhaActionForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/insereFuncionarioForm.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <!-- Funcionario - Inicio-->
+        <action name="InsereFuncionarioActionForm" input="/insereFuncionarioForm.jsp"  path="/inserirFuncionario" scope="request" type="br.com.aula.action.InsereFuncionarioAction"> 
+            <forward name="success" path="/listarFuncionarios.do"/>
+        </action>
+        <action name="ListarFuncionariosActionForm" path="/listarFuncionarios" scope="request" type="br.com.aula.action.ListarFuncionariosAction">
+            <forward name="success" path="/listarFuncionarios.jsp"/>
+        </action>    
+        <action name="AlterarFuncionarioActionForm" path="/alterarFuncionario1" scope="session" type="br.com.aula.action.AlterarFuncionarioAction" validate="false">
+            <forward name="success" path="/AlterarFuncionario.jsp"/>
+        </action>
+        <action input="/AlterarFuncionario.jsp" name="AlterarFuncionarioActionForm" path="/alterarFuncionario2" scope="session" type="br.com.aula.action.AlterarFuncionarioAction2">
+            <forward name="success" path="/listarFuncionarios.do"/>
+        </action>
+        <action name="RemoverFuncionarioActionForm" path="/removerFuncionario" scope="request" type="br.com.aula.action.RemoverFuncionarioAction" validate="false">
+            <forward name="success" path="/listarFuncionarios.do"/>
+        </action>
+        <!-- Funcionario - Fim -->
+        
+        <!-- Dependente - Inicio -->
+        <action name="CadastraDependenteActionForm" input="/CadastraDependente.jsp"  path="/inserirDependente" scope="request" type="br.com.aula.action.CadastraDependenteAction"> 
+            <forward name="success" path="/listarDependentes.do"/>
+        </action>
+        <action name="ListarDependentesActionForm" path="/listarDependentes" scope="request" type="br.com.aula.action.ListarDependentesAction">
+            <forward name="success" path="/listarDependentes.jsp"/>
+        </action>
+        <action name="AlteraDependenteActionForm" path="/alterarDependente1" scope="session" type="br.com.aula.action.AlterarDependenteAction" validate="false">
+            <forward name="success" path="/AlterarDependente.jsp"/>
+        </action>
+        <action name="AlteraDependenteActionForm" input="/AlterarDependente.jsp"  path="/alterarDependente2" scope="session" type="br.com.aula.action.AlterarDependenteAction2">
+            <forward name="success" path="/listarDependentes.do"/>
+        </action>
+        <action name="RemoverDependenteActionForm" path="/removerDependente" scope="request" type="br.com.aula.action.RemoverDependenteAction" validate="false">
+            <forward name="success" path="/listarDependentes.do"/>
+        </action>
+        <!-- Dependente - Fim -->
+        
+        <!-- Departamento - Inicio -->
+        <action name="CadastraDepartamentoActionForm" input="/CadastraDepartamento.jsp"  path="/inserirDepartamento" scope="request" type="br.com.aula.action.CadastraDepartamentoAction"> 
+            <forward name="success" path="/listarDepartamentos.do"/>
+        </action>
+        <action name="ListarDepartamentosActionForm" path="/listarDepartamentos" scope="request" type="br.com.aula.action.ListarDepartamentosAction">
+            <forward name="success" path="/listarDepartamentos.jsp"/>
+        </action>
+        <action name="AlteraDepartamentoActionForm" path="/alterarDepartamento1" scope="session" type="br.com.aula.action.AlterarDepartamentoAction" validate="false">
+            <forward name="success" path="/AlterarDepartamento.jsp"/>
+        </action>
+        <action name="AlteraDepartamentoActionForm" input="/AlterarDepartamento.jsp"  path="/alterarDepartamento2" scope="session" type="br.com.aula.action.AlterarDepartamentoAction2">
+            <forward name="success" path="/listarDepartamentos.do"/>
+        </action>
+        <action name="RemoverDepartamentoActionForm" path="/removerDepartamento" scope="request" type="br.com.aula.action.RemoverDepartamentoAction" validate="false">
+            <forward name="success" path="/listarDepartamentos.do"/>
+        </action>
+        <!-- Departamento - Fim -->
+        
+        <!-- Empresa - Inicio -->
+        <action name="CadastraEmpresaActionForm" input="/CadastraEmpresa.jsp"  path="/inserirEmpresa" scope="request" type="br.com.aula.action.CadastraEmpresaAction"> 
+            <forward name="success" path="/listarEmpresas.do"/>
+        </action>
+        <action name="ListarEmpresasActionForm" path="/listarEmpresas" scope="request" type="br.com.aula.action.ListarEmpresasAction">
+            <forward name="success" path="/listarEmpresas.jsp"/>
+        </action>
+        <action name="AlteraEmpresaActionForm" path="/alterarEmpresa1" scope="session" type="br.com.aula.action.AlterarEmpresaAction" validate="false">
+            <forward name="success" path="/AlterarEmpresa.jsp"/>
+        </action>
+        <action name="AlteraEmpresaActionForm" input="/AlterarEmpresa.jsp"  path="/alterarEmpresa2" scope="session" type="br.com.aula.action.AlterarEmpresaAction2">
+            <forward name="success" path="/listarEmpresas.do"/>
+        </action>
+        <action name="RemoverEmpresaActionForm" path="/removerEmpresa" scope="request" type="br.com.aula.action.RemoverEmpresaAction" validate="false">
+            <forward name="success" path="/listarEmpresas.do"/>
+        </action>
+        
+        <!-- Empresa - Fim -->
+        
+        <!-- Folha - Inicio -->
+        <action name="CadastraFolhaActionForm" input="/CadastraFolha.jsp"  path="/inserirFolha" scope="request" type="br.com.aula.action.CadastraFolhaAction"> 
+            <forward name="success" path="/listarFolhas.do"/>
+        </action>
+        <action name="ListarFolhasActionForm" path="/listarFolhas" scope="request" type="br.com.aula.action.ListarFolhasAction">
+            <forward name="success" path="/listarFolhas.jsp"/>
+        </action>
+        <action name="AlterarFolhaActionForm" path="/alterarFolha1" scope="session" type="br.com.aula.action.AlterarFolhaAction" validate="false">
+            <forward name="success" path="/AlterarFolha.jsp"/>
+        </action>
+        <action name="AlterarFolhaActionForm" input="/AlterarFolha.jsp"  path="/alterarFolha2" scope="session" type="br.com.aula.action.AlterarFolhaAction2">
+            <forward name="success" path="/listarFolhas.do"/>
+        </action>
+        <action name="RemoverFolhaActionForm" path="/removerFolha" scope="request" type="br.com.aula.action.RemoverFolhaAction" validate="false">
+            <forward name="success" path="/listarFolhas.do"/>
+        </action>   
+        <!-- Folha - Fim -->
+        
+        
+        <!-- Login - Inicio -->
+        <action name="LoginActionForm" path="/login" type="br.com.aula.action.LoginAction" scope="request" input="/Login.jsp" validate="true">
+            <forward name="success" path="/listarFuncionarios.do" redirect="true"/>
+            <forward name="failure" path="/Login.jsp" redirect="true"/>
+        </action>
+        <!-- Login - Fim-->
+        <action path="/Welcome" forward="/Login.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="br/com/aula/ApplicationResource"/>    
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/12/2015 15:58:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.aula.Empresa" table="empresa" catalog="lista">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" />
+        </property>
+        <property name="cnpj" type="string">
+            <column name="cnpj" />
+        </property>
+
+    </class>
+</hibernate-mapping>

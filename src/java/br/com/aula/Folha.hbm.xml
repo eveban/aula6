@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03/12/2015 08:17:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.aula.Folha" table="folha" catalog="lista" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresa" class="br.com.aula.Empresa" fetch="select">
+            <column name="empresa_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="br.com.aula.Funcionario" fetch="select">
+            <column name="funcionario_id" not-null="true" />
+        </many-to-one>
+        <property name="inss" type="big_decimal">
+            <column name="inss" precision="10" />
+        </property>
+        <property name="sindicato" type="big_decimal">
+            <column name="sindicato" precision="10" />
+        </property>
+        <property name="ajudacusto" type="big_decimal">
+            <column name="ajudacusto" precision="10" />
+        </property>
+        <property name="plr" type="big_decimal">
+            <column name="plr" precision="10" />
+        </property>
+        <property name="decimo" type="big_decimal">
+            <column name="decimo" precision="10" />
+        </property>
+        <property name="periodo" type="java.lang.Integer">
+            <column name="periodo" />
+        </property>
+        <property name="ferias" type="string">
+            <column name="ferias" length="5" />
+        </property>
+        <property name="datapagamento" type="timestamp">
+            <column name="datapagamento" length="19" />
+        </property>
+        <property name="salariofamilia" type="string">
+            <column name="salariofamilia" length="5" />
+        </property>
+        <property name="salario" type="big_decimal">
+            <column name="salario" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

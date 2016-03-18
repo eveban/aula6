@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/12/2015 15:58:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.aula.Dependente" table="dependente" catalog="lista">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="funcionario" class="br.com.aula.Funcionario" fetch="select">
+            <column name="funcionario_id" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" />
+        </property>
+        <property name="parentesco" type="string">
+            <column name="parentesco" />
+        </property>
+    </class>
+</hibernate-mapping>
